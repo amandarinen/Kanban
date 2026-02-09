@@ -27,3 +27,104 @@ h1:focus {
 .darker-border-checkbox.form-check-input {
     border-color: #929292;
 }
+
+/* Board: kolumner sida vid sida */
+.board {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    align-items: flex-start; /* top-alignment */
+}
+
+/* Kolumn: stapla kort lodrätt */
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 280px;
+    background-color: #f3f4f6;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+    /* Kolumnrubrik */
+    .column h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 18px;
+        text-align: center;
+    }
+
+/* AddCardForm: snyggt kort */
+.card-form {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Inputs */
+.card-input, .card-textarea {
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 14px;
+    resize: none;
+}
+
+    .card-input:focus, .card-textarea:focus {
+        outline: none;
+        border-color: #2563eb;
+        box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+    }
+
+/* Add-knapp */
+.card-button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+    .card-button:hover {
+        background-color: #1d4ed8;
+        transform: translateY(-1px);
+    }
+
+/* KanbanCard: visuellt kort */
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+    .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+/* Flyttaknappsknappen */
+.move-buttons button {
+    margin-top: 5px;
+    background-color: #e5e7eb;
+    border: none;
+    border-radius: 6px;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.2s;
+}
+
+    .move-buttons button:hover {
+        background-color: #d1d5db;
+    }

@@ -1,13 +1,13 @@
 ﻿@inherits Kanban.Components.Shared.StateAwareComponent
 
 <RoleGate Roles="@(new[] {"Author", "Admin"})">
-    <div class="add-card">
-        <input @bind="title" placeholder="Titel" />
-        <textarea @bind="description" placeholder="Beskrivning.."></textarea>
-
-        <button @onclick="AddCardAsync">Lägg till</button>
+    <div class="card-form">
+        <input @bind="title" placeholder="Titel" class="card-input" />
+        <textarea @bind="description" placeholder="Beskrivning.." class="card-textarea"></textarea>
+        <button @onclick="AddCardAsync" class="card-button">Lägg till</button>
     </div>
 </RoleGate>
+
 
 
 @code 
