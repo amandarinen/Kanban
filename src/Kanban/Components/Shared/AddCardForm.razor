@@ -1,0 +1,35 @@
+﻿@inherits Kanban.Components.Shared.StateAwareComponent
+
+<RoleGate Roles="@(new[] {"Author", "Admin"})">
+    <div class="add-card">
+        <input @bind="title" placeholder="Titel" />
+        <textarea @bind="description" placeholder="Beskrivning.."></textarea>
+
+        <button @onclick="AddCardAsync">Lägg till</button>
+    </div>
+</RoleGate>
+
+
+@code 
+
+{
+        [Parameter] public string ColumnName { get; set; } = string.Empty;
+
+    private string title = string.Empty;
+    private string description = string.Empty;
+
+    private async Task AddCardAsync()
+    {
+        var card = new Kanban.Models.KanbanCard
+            {
+                Title = title,
+                Description = description
+            };
+
+        await State.AddCardAsync(ColumnName, card);
+
+        title = string.Empty;
+        description = string.Empty;
+
+    }
+}

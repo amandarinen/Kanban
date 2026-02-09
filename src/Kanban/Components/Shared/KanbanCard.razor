@@ -1,0 +1,27 @@
+﻿@inherits Kanban.Components.Shared.StateAwareComponent
+@using Kanban.Services
+
+
+<div class="card">
+    <strong> @Card.Title</strong>
+    <p>@Card.Description</p>
+
+    <RoleGate Roles="@(new[] { "Author", "Admin" })">
+    <div class="move-buttons">
+        @foreach (var target in State.Columns.Select(column => column.Name).Where(name => name != ColumnName))
+        {
+            <button @onclick="() => MoveToAsync(target)">Flytta till @target</button>
+        }
+    </div>
+    </RoleGate>
+</div>
+
+@code {
+    [Parameter] public Kanban.Models.KanbanCard Card { get; set; } = default!;
+    [Parameter] public string ColumnName { get; set; } = default!;
+
+    private Task MoveToAsync(string to)
+    {
+        return State.MoveCardAsync(ColumnName, to, Card.Id);
+    }
+}

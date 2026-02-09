@@ -1,0 +1,17 @@
+﻿@using Kanban.Services
+@inherits Kanban.Components.Shared.UserStateAwareComponent
+@implements IDisposable
+
+@if (IsAllowed)
+{
+    @ChildContent
+}
+
+
+@code
+{
+    [Parameter] public IEnumerable<string> Roles { get; set; } = Array.Empty<string>();
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    private bool IsAllowed => Roles?.Contains(User.Role, StringComparer.InvariantCultureIgnoreCase) ?? true;
+}

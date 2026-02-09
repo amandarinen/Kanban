@@ -1,0 +1,16 @@
+﻿@inherits Kanban.Components.Shared.StateAwareComponent
+
+<div class="board">
+    @foreach(var column in State.Columns)
+    {
+        <KanbanColumn Column="column" />
+    }
+</div>
+
+@code 
+{
+    protected override Task StateChanged()
+    {
+        return Task.CompletedTask;
+    }
+}

@@ -1,0 +1,17 @@
+﻿@using Kanban.Services
+@inherits Kanban.Components.Shared.UserStateAwareComponent
+
+<select @onchange="OnChange" value="@User.Role">
+    <option value="Visitor">Visitor</option>
+    <option value="Author">Author</option>
+    <option value="Admin">Admin</option>
+</select>
+
+@code
+{
+    private async Task OnChange(ChangeEventArgs e)
+    {
+        await User.SetRoleAsync(e.Value?.ToString() ?? "Visitor");
+    }
+
+}

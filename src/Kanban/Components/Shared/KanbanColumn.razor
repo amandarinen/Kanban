@@ -1,0 +1,18 @@
+﻿<div class="column">
+    <h3>@Column.Name</h3>
+
+    <AddCardForm ColumnName="@Column.Name" />
+
+    @foreach(var card in Column.Cards)
+    {
+        <KanbanCard Card="card" ColumnName="@Column.Name" />
+    }
+
+    </div>
+
+@code
+
+{
+    [Parameter] public Kanban.Models.KanbanColumn Column { get; set; } = default!;
+}
+   
