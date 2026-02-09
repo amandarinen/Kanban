@@ -1,7 +1,13 @@
 ﻿@page "/"
+@using Kanban.Components.Shared
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<dic class="home-container">
+    <div class="role-selector-container">
+        <label>Choose role:</label>
+        <RoleSelector />
+    </div>
+    <KanbanBoard />
+</dic>
 
-Welcome to your new app.
